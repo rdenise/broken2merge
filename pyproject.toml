@@ -1,0 +1,61 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "broken2merge"
+version = "0.2.dev0"
+description = "Tool to merge broken gene due to assembly error based on the alignment"
+authors = ["Remi Denise"]
+readme = "README.md"
+homepage = "https://github.com/rdenise/broken_merge"
+repository = "https://github.com/rdenise/broken_merge"
+license = "MIT"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: POSIX",
+    "Environment :: Console",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+]
+
+# If your project structure differs from the standard one supported by poetry, 
+# you can specify the packages you want to include in the final distribution.
+packages = [
+    {include = "broken2merge"}
+    ]
+
+exclude = [
+    ".git*",
+    "*.pyc",
+    "*__pycache__*",
+    "upload*",
+    "test*",
+    "conda*",
+    "Benchmark*",
+    ".coverage*",
+    "maybe*",
+    "*old*",
+    "*data*",
+    ".DS_Store",
+    ]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+biopython = "^1.81"
+numpy = "^1.26.0"
+tqdm = "^4.66.1"
+
+[tool.poetry.scripts]
+broken2merge = 'broken2merge.__main__:main'
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/rdenise/broken_merge/issues"
+
+[tool.distutils.bdist_wheel]
+universal = 1
