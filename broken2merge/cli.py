@@ -77,6 +77,13 @@ def cli(args=None):
         help="Separator to use to split the gene name (Default: '_')",
     )
 
+    # general_options.add_argument(
+    #     "--discard",
+    #     action="store_true",
+    #     type=bool,
+    #     default=False,
+    #     help="Discard the sequence from the alignment in case of duplication",
+    # )
 
     args, nargs = parser.parse_known_args(args)
 

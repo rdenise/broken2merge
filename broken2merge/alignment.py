@@ -93,7 +93,7 @@ def merge_broken_genes(alignment_dict, output_folder, separator="_"):
     new_alignment = {}
 
     # Merge the broken genes
-    for key, value in tqdm(alignment_length_greater_than_1.items(), desc="Parsing duplicate name:"):
+    for key, value in tqdm(alignment_length_greater_than_1.items(), desc="Parsing duplicate names"):
         # Get the the first sequence as pivot
         first_sequence = value[0]
 

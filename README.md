@@ -55,3 +55,47 @@ broken2merge -i ftsK.aln.fas -o test -s ';'
 ```
 
 Here for an input file named `ftsK.aln.fas` and output folder named `test` and the separator is `;` in the gene name (`species_name;gene_name`).
+
+
+## Explaination of the concatenation
+
+Case that will be handled:
+
+1. Two genes that do not overlap in the alignment
+
+```
+speciesA_geneA  ------------------atgattgaactcgccc                
+speciesA_geneA  atgattgaactcgccc------------------
+```
+
+it will become
+
+```
+speciesA_merge atgattgaactcgcc--catgattgaactcgccc
+```
+
+2. Two genes that overlap and perfectly in the alignment in only one part
+
+```
+speciesA_geneA  ----------------actcgcccatgattgaactcgccc
+                                ||||||||
+speciesA_geneB  atgattgaactcgcccactcgccc----------------
+```
+
+will become
+
+```
+speciesA_merge atgattgaactcgcccactcgcccatgattgaactcgccc
+```
+
+3. Two genes with a overlap not at the extremity of the gene
+
+```
+speciesA_geneA  ---------------------actcgcccatgattgaactcgccc
+                                     ||||||||
+speciesA_geneB  atgattgaactcgccc-----actcgccc----------------
+```
+
+The sequence will be discarded from the alignement 
+
+
