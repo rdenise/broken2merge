@@ -96,6 +96,6 @@ speciesA_geneA  ---------------------actcgcccatgattgaactcgccc
 speciesA_geneB  atgattgaactcgccc-----actcgccc----------------
 ```
 
-The sequence will be discarded from the alignement 
+The sequences will be discarded from the alignement 
 
 
