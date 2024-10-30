@@ -28,7 +28,7 @@ pip install broken2merge
 To use `broken2merge`:
 
 ```bash
-usage: broken_merge [-h] [-v] [-V] -i FASTA_FILE [-o OUTPUT] [-s SEPARATOR]
+usage: broken2merge [-h] [-v] [-V] -i FASTA_FILE [-o OUTPUT] [-s SEPARATOR]
 
 Takes a alignement and find genes that seems broken and merge them together
 
@@ -43,7 +43,8 @@ General input dataset options:
   -o OUTPUT, --output OUTPUT
                         Path of the output folder (Default: merge_broken_res)
   -s SEPARATOR, --separator SEPARATOR
-                        Separator to use to split the gene name (Default: '_')
+                        Separator to use to split the gene name (Default: ';')
+  --force_merge         Force the merge of the genes even if they might be paralogs, will give a unaligned file as main input
 ```
 
 ## Example
@@ -96,6 +97,30 @@ speciesA_geneA  ---------------------actcgcccatgattgaactcgccc
 speciesA_geneB  atgattgaactcgccc-----actcgccc----------------
 ```
 
-The sequences will be discarded from the alignement 
+
+will become
+
+```
+speciesA_merge atgattgaactcgccc-----actcgcccatgattgaactcgccc
+```
+
+4. Two genes wit an overlap that is not 100% perfect
+
+```
+speciesA_geneA  ---------------------actcgcccatgattgaactcgccc
+                                     || ||| | 
+speciesA_geneB  atgattgaactcgccc-----acccgcgc---------------
+```
+
+The sequences will be discarded from the alignement.
+
+If `--force_merge` is used, it the sequences will be merged with the sequence one after the other in order from the alignement.
+The output fasta file will unaligned.
+
+it will become
+
+```
+speciesA_merge atgattgaactcgcccacccgcgcactcgcccatgattgaactcgccc
+```
 
 

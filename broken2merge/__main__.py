@@ -38,13 +38,15 @@ def main():
 
     merged_alignment = merge_broken_genes(alignment_dict=dict_alignment,
                                           output_folder=args.output,
-                                          separator=args.separator)
+                                          separator=args.separator,
+                                          force=args.force_merge,
+                                          )
 
     basename_alignment = os.path.basename(args.in_fasta)
 
     final_alignment = os.path.join(args.output, basename_alignment.replace(file_extension, ".merged" + file_extension))
 
-    write_alignment(alignment=merged_alignment, output_file=final_alignment)
+    write_alignment(alignment=merged_alignment, output_file=final_alignment, force=args.force_merge)
 
 ###################################################################################################
 

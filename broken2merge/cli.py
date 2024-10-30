@@ -73,8 +73,15 @@ def cli(args=None):
         "-s",
         "--separator",
         type=str,
-        default="_",
-        help="Separator to use to split the gene name (Default: '_')",
+        default=";",
+        help="Separator to use to split the gene name (Default: ';')",
+    )
+
+    general_options.add_argument(
+        "--force_merge",
+        default=False,
+        action="store_true",
+        help="Force the merge of the genes even if they might be paralogs, will give a unaligned file as main input",
     )
 
     # general_options.add_argument(

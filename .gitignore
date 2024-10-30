@@ -70,3 +70,5 @@ target/
 # Environments
 *.env
 .vscode*
+
+test.ipynb
