@@ -20,6 +20,7 @@ pip install broken2merge
 
 ```bash
 mamba create -n broken2merge python=3.12 tqdm biopython numpy
+conda activate broken2merge
 pip install broken2merge
 ```
 
