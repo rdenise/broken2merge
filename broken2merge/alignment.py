@@ -218,13 +218,13 @@ def compare_sequences(sequence_one_seq, sequence_one_id, sequence_two, genome, o
             if force:
                 # Test if the second sequence is before the first sequence else the opposite
                 if tmp_nucleotides_locations[0] < nucleotides_locations[0]:
-                    first_sequence = np.concatenate([tmp_sequence[tmp_nucleotides_locations], first_sequence[nucleotides_locations[-1]+1:]])
+                    first_sequence = np.concatenate((tmp_sequence, first_sequence))
 
                     if not multiple:
                         with open(os.path.join(output_folder, "broken_genes.merged.csv"), "a", encoding="utf-8") as file:
                             file.write(f"{genome}{separator}merged,{sequence_two.id} && {sequence_one_id}\n")
                 else:
-                    first_sequence = np.concatenate([first_sequence[nucleotides_locations], tmp_sequence[tmp_nucleotides_locations[-1]+1:]])
+                    first_sequence = np.concatenate((first_sequence, tmp_sequence))
 
                     if not multiple:
                         with open(os.path.join(output_folder, "broken_genes.merged.csv"), "a", encoding="utf-8") as file:
